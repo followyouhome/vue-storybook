@@ -10,11 +10,11 @@ function generateCode(source, ctx) {
   let code = "";
   const story = {
     template: source.trim(),
-    name: loaderUtils.getOptions(ctx).name || "",
-    group: loaderUtils.getOptions(ctx).group || "Stories",
-    methods: loaderUtils.getOptions(ctx).methods,
-    notes: loaderUtils.getOptions(ctx).notes,
-    knobs: loaderUtils.getOptions(ctx).knobs
+    name: loaderUtils.parseQuery(ctx.resourceQuery).name || "",
+    group: loaderUtils.parseQuery(ctx.resourceQuery).group || "Stories",
+    methods: loaderUtils.parseQuery(ctx.resourceQuery).methods,
+    notes: loaderUtils.parseQuery(ctx.resourceQuery).notes,
+    knobs: loaderUtils.parseQuery(ctx.resourceQuery).knobs
   };
 
   code += `function (Component) {
